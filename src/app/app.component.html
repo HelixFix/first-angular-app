@@ -7,7 +7,10 @@
           <app-appareil></app-appareil>
           <app-appareil></app-appareil>
         </ul>
-      <button class="btn btn-success" [disabled]="!isAuth">Tout allumer</button>
+        <!-- Pour lier à une propriété on utilise les crochets et pour lier à un événement du DOM on utilise les parenthèses -->
+      <button class="btn btn-success" 
+      [disabled]="!isAuth" 
+      (click)="onAllumer()">Tout allumer</button>
     </div>
   </div>
 </div>
