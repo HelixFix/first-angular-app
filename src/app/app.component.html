@@ -4,12 +4,7 @@
       <H2>Mes appareils</H2>
         <ul class="list-group">
 
-          <!-- Méthode "dynamique" avec des variables avec liaison par propriété depuis app.component.ts -->
-          <app-appareil [appareilName] = "appareilOne" appareilStatus="Éteint"></app-appareil>
-
-          <!-- Méthode en dur dans le HTML avec l'alias @input depuis appareil.components.ts -->
-          <app-appareil appareilName = "Télévision" appareilStatus="Allumé"></app-appareil>
-          <app-appareil appareilName = "Ordinateur" appareilStatus="Éteint"></app-appareil>
+          <app-appareil *ngFor="let appareil of appareils" [appareilName]="appareil.name" [appareilStatus]="appareil.status"></app-appareil>
 
         </ul>
         <!-- Pour lier à une propriété on utilise les crochets et pour lier à un événement du DOM on utilise les parenthèses -->
