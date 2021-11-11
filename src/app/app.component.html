@@ -1,13 +1,16 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
+
       <H2>Mes appareils</H2>
+
+      <p>Mis à jour : {{ lastUpdate | date }}</p>
         <ul class="list-group">
 
           <app-appareil *ngFor="let appareil of appareils" [appareilName]="appareil.name" [appareilStatus]="appareil.status"></app-appareil>
 
         </ul>
-        
+
         <!-- Pour lier à une propriété on utilise les crochets et pour lier à un événement du DOM on utilise les parenthèses -->
       <button class="btn btn-success" 
       [disabled]="!isAuth" 
