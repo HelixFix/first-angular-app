@@ -7,7 +7,10 @@
       <p>Mis à jour : {{ lastUpdate | async | date | uppercase }}</p>
         <ul class="list-group">
 
-          <app-appareil *ngFor="let appareil of appareils" [appareilName]="appareil.name" [appareilStatus]="appareil.status"></app-appareil>
+          <app-appareil *ngFor="let appareil of appareils; let i = index"
+          [indexOfAppareil]="i" 
+          [appareilName]="appareil.name" 
+          [appareilStatus]="appareil.status"></app-appareil>
 
         </ul>
 
