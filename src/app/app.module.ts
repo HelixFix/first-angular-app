@@ -10,6 +10,13 @@ import { AppareilComponent } from './appareil/appareil.component';
 import { AppareilService } from './services/appareils.services';
 import { AuthComponent } from './auth/auth.component';
 import { AppareilViewComponent } from './appareil-view/appareil-view.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const appRoutes: Routes = [
+  { path: 'appareils', component: AppareilViewComponent},
+  { path: 'auth', component: AuthComponent},
+  { path: '', component: AppareilViewComponent}
+]
 
 @NgModule({
   declarations: [
@@ -22,7 +29,8 @@ import { AppareilViewComponent } from './appareil-view/appareil-view.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [
     AppareilService
