@@ -1,27 +1,5 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12">
-
-      <H2>Mes appareils</H2>
-
-      <p>Mis à jour : {{ lastUpdate | async | date | uppercase }}</p>
-        <ul class="list-group">
-
-          <app-appareil *ngFor="let appareil of appareils; let i = index"
-          [indexOfAppareil]="i" 
-          [appareilName]="appareil.name" 
-          [appareilStatus]="appareil.status"></app-appareil>
-
-        </ul>
-
-        <!-- Pour lier à une propriété on utilise les crochets et pour lier à un événement du DOM on utilise les parenthèses -->
-      <button class="btn btn-success" 
-      [disabled]="!isAuth" 
-      (click)="onAllumer()">Tout allumer</button>
-      
-      <button class="btn btn-danger" 
-      (click)="onEteindre()">Tout éteindre</button>
-
-    </div>
+    <app-appareil-view></app-appareil-view>
   </div>
 </div>
