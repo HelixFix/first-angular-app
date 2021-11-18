@@ -3,9 +3,9 @@ import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.services';
 
 @Component({
-  selector: 'app-auth',
+  selector   : 'app-auth',
   templateUrl: './auth.component.html',
-  styleUrls: ['./auth.component.scss']
+  styleUrls  : ['./auth.component.scss']
 })
 export class AuthComponent implements OnInit {
 

@@ -1,36 +1,43 @@
 export class AppareilService {
-    appareils = [
-        {
-          name  : "Machine à laver",
-          status: 'éteint'
-        },
-        {
-          name  : "Télévision",
-          status: 'allumé'
-        },
-        {
-          name  : "Ordinateur",
-          status: 'éteint'
-        }
-      ]
+  appareils = [
+    {
+      id    : 1,
+      name  : 'Machine à laver',
+      status: 'éteint',
+    },
+    {
+      id    : 2,
+      name  : 'Télévision',
+      status: 'allumé',
+    },
+    {
+      id    : 3,
+      name  : 'Ordinateur',
+      status: 'éteint',
+    },
+  ];
 
-    switchOnAll() {
-        for(let appareil of this.appareils) {
-            appareil.status = 'allumé'
-        }
-    }
+  getAppareilById(id: number) {
+    return this.appareils.find((appareilObject) => appareilObject.id === id);
+  }
 
-    switchOffAll() {
-        for(let appareil of this.appareils) {
-            appareil.status = 'éteint'
-        }
+  switchOnAll() {
+    for (let appareil of this.appareils) {
+      appareil.status = 'allumé';
     }
+  }
 
-    switchOnOne(index: number) {
-        this.appareils[index].status = 'allumé'
+  switchOffAll() {
+    for (let appareil of this.appareils) {
+      appareil.status = 'éteint';
     }
+  }
 
-    switchOffOne(index: number) {
-        this.appareils[index].status = 'éteint'
-    }
+  switchOnOne(index: number) {
+    this.appareils[index].status = 'allumé';
+  }
+
+  switchOffOne(index: number) {
+    this.appareils[index].status = 'éteint';
+  }
 }
