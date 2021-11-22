@@ -17,11 +17,11 @@ import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 
 const appRoutes: Routes = [
   { path: 'appareils', component: AppareilViewComponent },
+  { path: '', redirectTo: '/appareils', pathMatch: 'full'},
   { path: 'appareils/:id', component: SingleAppareilComponent },
   { path: 'auth', component: AuthComponent },
-  { path: '', component: AppareilViewComponent },
   { path: 'not-found', component: FourOhFourComponent },
-  { path: '**', redirectTo: '/not-found' }
+  { path: '**', redirectTo: '/not-found' },
 ];
 
 
@@ -37,7 +37,6 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
