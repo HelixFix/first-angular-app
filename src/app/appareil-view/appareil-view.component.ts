@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { AppareilService } from '../services/appareils.services';
 
 @Component({
@@ -16,7 +17,8 @@ export class AppareilViewComponent implements OnInit {
     }, 2000);
   });
 
-  appareils: any[];
+  appareils           : any[];
+  appareilSubscription: Subscription;
 
   constructor(private appareilService: AppareilService) {
     setTimeout(() => {
@@ -25,8 +27,12 @@ export class AppareilViewComponent implements OnInit {
   }
 
   ngOnInit() {
-    // Le tableau local appareils sera égal au tableau dans le service
-    this.appareils = this.appareilService.appareils;
+    this.appareilSubscription = this.appareilService.appareilSubject.subscribe(
+      (appareils: any[]) => {
+        this.appareils = appareils;
+      }
+    );
+    this.appareilService.emitAppareilSubject()
   }
 
   onAllumer() {
