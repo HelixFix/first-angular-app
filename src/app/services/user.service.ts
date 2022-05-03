@@ -7,7 +7,7 @@ export class UserService {
             firstName      : 'Jérôme',
             lastName       : 'Rinner',
             email          : 'portfolio.9fkib@aleeas.com',
-            drinkPreference: 'Water',
+            drinkPreference: 'H2O',
             hobbies        : [
                 'coder',
                 'la dégustation de café'
