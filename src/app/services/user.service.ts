@@ -4,10 +4,10 @@ import { User } from "../models/User.model";
 export class UserService {
     private users: User[] = [
         {
-            firstName      : 'James',
-            lastName       : 'Smith',
-            email          : 'jamezs@smith.com',
-            drinkPreference: 'Coca',
+            firstName      : 'Jérôme',
+            lastName       : 'Rinner',
+            email          : 'portfolio.9fkib@aleeas.com',
+            drinkPreference: 'Water',
             hobbies        : [
                 'coder',
                 'la dégustation de café'
