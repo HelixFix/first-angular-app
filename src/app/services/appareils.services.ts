@@ -100,4 +100,20 @@ export class AppareilService {
       .put('https://http-client-demo-8a3d5-default-rtdb.europe-west1.firebasedatabase.app/appareils.json', this.appareils)
       .subscribe({complete: console.info});
   }
+
+  /**
+   * This function gets the appareils from the server and then emits the appareil subject.
+   */
+  getAppareilsFromServer() {
+    this.httpClient
+      .get<any[]>('https://http-client-demo-8a3d5-default-rtdb.europe-west1.firebasedatabase.app/appareils.json')
+      .subscribe(
+        (response) => {
+          this.appareils = response;
+          console.log(this.appareils);
+          
+          this.emitAppareilSubject();
+        }
+      )
+  }
 }

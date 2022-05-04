@@ -26,24 +26,46 @@ export class AppareilViewComponent implements OnInit {
     }, 4000);
   }
 
+ /**
+  * We subscribe to the appareilSubject of the AppareilService, and we update the appareils array with
+  * the new value of the appareilSubject
+  */
   ngOnInit() {
     this.appareilSubscription = this.appareilService.appareilSubject.subscribe(
       (appareils: any[]) => {
-        this.appareils = appareils;
+        if (appareils.length) { //  checking array length of the stream parameter before assigning it to appareils
+          this.appareils = appareils;
+        }
       }
     );
     this.appareilService.emitAppareilSubject()
   }
 
+/**
+ * It calls the switchOnAll() method of the AppareilService service
+ */
   onAllumer() {
     this.appareilService.switchOnAll();
   }
 
+/**
+ * It calls the switchOffAll() method of the AppareilService service
+ */
   onEteindre() {
     this.appareilService.switchOffAll();
   }
 
+/**
+ * We call the saveAppareilsToServer() method of the AppareilService service
+ */
   onSave() {
     this.appareilService.saveAppareilsToServer();
+  }
+
+/**
+ * We call the getAppareilsFromServer() method of the AppareilService service
+ */
+  onFetch() {
+    this.appareilService.getAppareilsFromServer();
   }
 }
