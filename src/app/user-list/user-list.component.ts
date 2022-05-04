@@ -15,6 +15,10 @@ export class UserListComponent implements OnInit, OnDestroy {
 
   constructor(private userService: UserService) { }
 
+/**
+ * We subscribe to the userSubject of the userService, and when we receive the users, we assign them to
+ * the users variable
+ */
   ngOnInit(): void {
     this.userSubscription = this.userService.userSubject.subscribe(
       (users: User[]) => {
@@ -24,6 +28,10 @@ export class UserListComponent implements OnInit, OnDestroy {
     this.userService.emitUsers();
   }
 
+/**
+ * We're using the `unsubscribe()` method to stop the `userSubscription` from listening to the
+ * `userSubject` Observable
+ */
   ngOnDestroy() {
     this.userSubscription.unsubscribe();
   }

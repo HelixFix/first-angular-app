@@ -44,10 +44,18 @@ export class NewUserComponent implements OnInit {
     this.router.navigate(['/users']);
   }
 
+/**
+ * It returns the hobbies FormArray from the userForm FormGroup
+ * @returns The hobbies form array.
+ */
   getHobbies() {
     return this.userForm.get('hobbies') as FormArray;
   }
 
+/**
+ * We're creating a new FormControl with a blank value and a required validator, and then we're pushing
+ * it into the hobbies FormArray
+ */
   onAddHobby() {
     const newHobbyControl = this.formBuilder.control('', Validators.required);
     this.getHobbies().push(newHobbyControl);

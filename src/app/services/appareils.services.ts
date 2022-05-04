@@ -27,6 +27,9 @@ export class AppareilService {
 
   constructor(private httpClient: HttpClient) {}
 
+/**
+ * It emits a copy of the appareils array
+ */
   emitAppareilSubject() {
     this.appareilSubject.next(this.appareils.slice())
   }
@@ -35,6 +38,9 @@ export class AppareilService {
     return this.appareils.find((appareilObject) => appareilObject.id === id);
   }
 
+/**
+ * It loops through the array of appareils and sets the status of each appareil to 'allumé'.
+ */
   switchOnAll() {
     for (let appareil of this.appareils) {
       appareil.status = 'allumé';
@@ -42,6 +48,9 @@ export class AppareilService {
     this.emitAppareilSubject()
   }
 
+/**
+ * It loops through the appareils array and sets the status of each appareil to 'éteint'
+ */
   switchOffAll() {
     for (let appareil of this.appareils) {
       appareil.status = 'éteint';
@@ -49,11 +58,21 @@ export class AppareilService {
     this.emitAppareilSubject()
   }
 
+/**
+ * It takes an index as a parameter, then it changes the status of the appareil at the given index to
+ * 'allumé' and then it emits the appareilSubject.
+ * @param {number} index - number
+ */
   switchOnOne(index: number) {
     this.appareils[index].status = 'allumé';
     this.emitAppareilSubject()
   }
 
+ /**
+  * It takes an index as a parameter, and then sets the status of the appareil at that index to
+  * 'éteint' (off).
+  * @param {number} index - number
+  */
   switchOffOne(index: number) {
     this.appareils[index].status = 'éteint';
     this.emitAppareilSubject()
@@ -73,6 +92,9 @@ export class AppareilService {
     this.emitAppareilSubject();
   }
 
+/**
+ * It takes the appareils array and sends it to the server
+ */
   saveAppareilsToServer() {
     this.httpClient
       .put('https://http-client-demo-8a3d5-default-rtdb.europe-west1.firebasedatabase.app/appareils.json', this.appareils)
