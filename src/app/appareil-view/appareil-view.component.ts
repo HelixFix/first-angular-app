@@ -10,7 +10,7 @@ import { AppareilService } from '../services/appareils.services';
 export class AppareilViewComponent implements OnInit {
   isAuth = false;
 
-  lastUpdate = new Promise<Date>((resolve, reject) => {
+  lastUpdate = new Promise<Date>((resolve) => {
     const date = new Date();
     setTimeout(() => {
       resolve(date);
